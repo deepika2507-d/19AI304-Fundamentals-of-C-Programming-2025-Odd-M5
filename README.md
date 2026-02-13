@@ -39,7 +39,58 @@
 ### Step 12: 
   Stop
 # Program:
+```
+#include <stdio.h>
+
+/* Function using Call by Value */
+void swapByValue(int a, int b) {
+    int temp;
+    temp = a;
+    a = b;
+    b = temp;
+
+    printf("\nInside swapByValue function:");
+    printf("\na = %d, b = %d\n", a, b);
+}
+
+/* Function using Call by Reference (Pointers) */
+void swapByReference(int *a, int *b) {
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+
+    printf("\nInside swapByReference function:");
+    printf("\na = %d, b = %d\n", *a, *b);
+}
+
+int main() {
+    int x = 10, y = 20;
+
+    printf("Before swapByValue:");
+    printf("\nx = %d, y = %d\n", x, y);
+
+    swapByValue(x, y);
+
+    printf("\nAfter swapByValue:");
+    printf("\nx = %d, y = %d\n", x, y);
+
+    printf("\n-----------------------------\n");
+
+    printf("\nBefore swapByReference:");
+    printf("\nx = %d, y = %d\n", x, y);
+
+    swapByReference(&x, &y);
+
+    printf("\nAfter swapByReference:");
+    printf("\nx = %d, y = %d\n", x, y);
+
+    return 0;
+}
+```
 # Output:
+<img width="1019" height="485" alt="image" src="https://github.com/user-attachments/assets/db93846b-cb64-40c1-8057-1f8cd1446290" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -77,7 +128,41 @@
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+/* Recursive function to find Fibonacci term */
+int fibonacci(int n) {
+    if (n == 0)
+        return 0;
+    else if (n == 1)
+        return 1;
+    else
+        return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int n, i;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    if (n <= 0) {
+        printf("Please enter a positive integer.\n");
+    } else {
+        printf("Fibonacci Series up to %d terms:\n", n);
+        for (i = 0; i < n; i++) {
+            printf("%d ", fibonacci(i));
+        }
+    }
+
+    return 0;
+}
+
+```
 # Output:
+<img width="1023" height="488" alt="image" src="https://github.com/user-attachments/assets/07565898-de91-42f2-97d4-217744c78c91" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -119,7 +204,56 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 12:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+/* Recursive function to print numbers */
+void printNumbers(int lower, int upper) {
+    if (lower > upper)
+        return;   // Base condition to stop recursion
+
+    printf("%d ", lower);
+    printNumbers(lower + 2, upper);  // Recursive call with step of 2
+}
+
+int main() {
+    int lower, upper, choice;
+
+    printf("Enter lower limit: ");
+    scanf("%d", &lower);
+
+    printf("Enter upper limit: ");
+    scanf("%d", &upper);
+
+    printf("Enter 1 to print Even numbers\n");
+    printf("Enter 2 to print Odd numbers\n");
+    printf("Choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        // Adjust lower limit to first even number
+        if (lower % 2 != 0)
+            lower++;
+        printf("Even numbers between limits:\n");
+        printNumbers(lower, upper);
+    }
+    else if (choice == 2) {
+        // Adjust lower limit to first odd number
+        if (lower % 2 == 0)
+            lower++;
+        printf("Odd numbers between limits:\n");
+        printNumbers(lower, upper);
+    }
+    else {
+        printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
+```
 # Output:
+<img width="1025" height="487" alt="image" src="https://github.com/user-attachments/assets/31c5496e-85d2-4c74-8807-a4a5c491aff1" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -161,7 +295,56 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 11:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+/* Recursive function to print numbers */
+void printNumbers(int lower, int upper) {
+    if (lower > upper)
+        return;   // Base condition to stop recursion
+
+    printf("%d ", lower);
+    printNumbers(lower + 2, upper);  // Recursive call with step of 2
+}
+
+int main() {
+    int lower, upper, choice;
+
+    printf("Enter lower limit: ");
+    scanf("%d", &lower);
+
+    printf("Enter upper limit: ");
+    scanf("%d", &upper);
+
+    printf("Enter 1 to print Even numbers\n");
+    printf("Enter 2 to print Odd numbers\n");
+    printf("Choice: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        // Adjust lower limit to first even number
+        if (lower % 2 != 0)
+            lower++;
+        printf("Even numbers between limits:\n");
+        printNumbers(lower, upper);
+    }
+    else if (choice == 2) {
+        // Adjust lower limit to first odd number
+        if (lower % 2 == 0)
+            lower++;
+        printf("Odd numbers between limits:\n");
+        printNumbers(lower, upper);
+    }
+    else {
+        printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
+```
 # Output:
+<img width="1591" height="741" alt="image" src="https://github.com/user-attachments/assets/f8358041-2425-422f-8afb-27b5df450198" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -197,6 +380,37 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 10:
   Stop
 # Program:
+```
+#include <stdio.h>
+
+/* Function to display array elements */
+void displayArray(int arr[], int n) {
+    int i;
+    printf("Array elements are:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+int main() {
+    int arr[100], n, i;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter %d integers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    /* Function call */
+    displayArray(arr, n);
+
+    return 0;
+}
+```
 # Output:
+<img width="1034" height="476" alt="image" src="https://github.com/user-attachments/assets/c5d071ff-8b15-476f-a0c4-2c3f4427a054" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
